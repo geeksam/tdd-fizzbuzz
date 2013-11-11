@@ -1,10 +1,12 @@
 def fizzbuzz_of(n)
+  fizz = (n % 3) == 0
+  buzz = (n % 5) == 0
   case
-  when (n % 3) == 0 && (n % 5) == 0
+  when fizz && buzz
     'FizzBuzz'
-  when (n % 3) == 0
+  when fizz
     'Fizz'
-  when (n % 5) == 0
+  when buzz
     'Buzz'
   else
     n
