@@ -9,4 +9,7 @@ raise "FAILURE:  expected 2, but got #{actual}" unless actual == 2
 actual = fizzbuzz_of(3)
 raise "FAILURE:  expected 'Fizz', but got #{actual}" unless actual == 'Fizz'
 
+actual = fizzbuzz_of(5)
+raise "FAILURE:  expected 'Buzz', but got #{actual}" unless actual == 'Buzz'
+
 puts "SUCCESS"
