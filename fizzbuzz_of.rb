@@ -1,7 +1,8 @@
 def fizzbuzz_of(n)
-  if (n % 3) == 0
+  case
+  when (n % 3) == 0
     'Fizz'
-  elsif (n % 5) == 0
+  when (n % 5) == 0
     'Buzz'
   else
     n
