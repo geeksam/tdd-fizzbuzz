@@ -10,6 +10,7 @@ end
 
 def test
   yield
+  print '.'; STDOUT.flush
 end
 
 ##### TESTS #####
@@ -60,4 +61,5 @@ end
 
 ##### SUMMARIZING #####
 
+puts "\n\n"
 puts "SUCCESS"
