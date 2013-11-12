@@ -13,6 +13,7 @@ def test(&block)
 end
 
 def run_test
+  sleep 0.5
   yield
   print '.'; STDOUT.flush
 rescue => e
