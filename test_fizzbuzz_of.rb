@@ -71,9 +71,15 @@ end
 
 ##### RUNNING TESTS #####
 
+threads = []
+
 @tests.each do |test_block|
-  run_test &test_block
+  threads << Thread.new do
+    run_test &test_block
+  end
 end
+
+threads.each(&:join)
 
 ##### SUMMARIZING #####
 
