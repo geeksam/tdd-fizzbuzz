@@ -11,7 +11,11 @@ end
 def test
   yield
   print '.'; STDOUT.flush
+rescue => e
+  @failures << e
 end
+
+@failures = []
 
 ##### TESTS #####
 
@@ -62,4 +66,12 @@ end
 ##### SUMMARIZING #####
 
 puts "\n\n"
-puts "SUCCESS"
+if @failures.empty?
+  puts "SUCCESS"
+else
+  @failures.each do |failure|
+    puts failure.message
+    puts failure.backtrace.join("\n")
+    puts ''
+  end
+end
