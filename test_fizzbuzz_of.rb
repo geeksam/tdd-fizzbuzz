@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), 'fizzbuzz_of')
+##### TEST HELPERS #####
 
 def assert(condition, message)
   raise "FAILURE:  " + message unless condition
@@ -11,6 +11,10 @@ end
 def test
   yield
 end
+
+##### TESTS #####
+
+require File.join(File.dirname(__FILE__), 'fizzbuzz_of')
 
 test do
   expected = 1
@@ -53,5 +57,7 @@ test do
   actual   = fizzbuzz_of(15)
   assert_equal expected, actual
 end
+
+##### SUMMARIZING #####
 
 puts "SUCCESS"
