@@ -8,13 +8,18 @@ def assert_equal expected, actual
   assert expected == actual, "expected #{expected}, but got #{actual}"
 end
 
-def test
+def test(&block)
+  @tests << block
+end
+
+def run_test
   yield
   print '.'; STDOUT.flush
 rescue => e
   @failures << e
 end
 
+@tests = []
 @failures = []
 
 ##### TESTS #####
@@ -61,6 +66,12 @@ test do
   expected = 'FizzBuzz'
   actual   = fizzbuzz_of(15)
   assert_equal expected, actual
+end
+
+##### RUNNING TESTS #####
+
+@tests.each do |test_block|
+  run_test &test_block
 end
 
 ##### SUMMARIZING #####
