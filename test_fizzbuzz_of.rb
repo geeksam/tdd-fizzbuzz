@@ -12,6 +12,13 @@ def test(&block)
   @tests << block
 end
 
+def test_fizzbuzz(input, expected_output)
+  test do
+    actual   = fizzbuzz_of(input)
+    assert_equal expected_output, actual
+  end
+end
+
 def run_test
   sleep 0.5
   yield
@@ -27,47 +34,12 @@ end
 
 require File.join(File.dirname(__FILE__), 'fizzbuzz_of')
 
-test do
-  expected = 1
-  actual   = fizzbuzz_of(1)
-  assert_equal expected, actual
-end
-
-test do
-  expected = 2
-  actual   = fizzbuzz_of(2)
-  assert_equal expected, actual
-end
-
-test do
-  expected = 'Fizz'
-  actual   = fizzbuzz_of(3)
-  assert_equal expected, actual
-end
-
-test do
-  expected = 'Buzz'
-  actual   = fizzbuzz_of(5)
-  assert_equal expected, actual
-end
-
-test do
-  expected = 'Fizz'
-  actual   = fizzbuzz_of(6)
-  assert_equal expected, actual
-end
-
-test do
-  expected = 'Buzz'
-  actual   = fizzbuzz_of(10)
-  assert_equal expected, actual
-end
-
-test do
-  expected = 'FizzBuzz'
-  actual   = fizzbuzz_of(15)
-  assert_equal expected, actual
-end
+test_fizzbuzz 1,  1
+test_fizzbuzz 2,  2
+test_fizzbuzz 3,  'Fizz'
+test_fizzbuzz 5,  'Buzz'
+test_fizzbuzz 10, 'Buzz'
+test_fizzbuzz 15, 'FizzBuzz'
 
 ##### RUNNING TESTS #####
 
