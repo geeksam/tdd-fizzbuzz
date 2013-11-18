@@ -14,7 +14,7 @@ end
 
 def test_fizzbuzz(input, expected_output)
   test do
-    actual   = fizzbuzz_of(input)
+    actual   = FizzBuzzer.fizzbuzz_of(input)
     assert_equal expected_output, actual
   end
 end
