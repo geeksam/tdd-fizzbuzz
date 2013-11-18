@@ -51,15 +51,9 @@ test_fizzbuzz 15, 'FizzBuzz'
 
 ##### RUNNING TESTS #####
 
-threads = []
-
 @tests.each do |test_block|
-  threads << Thread.new do
-    run_test &test_block
-  end
+  run_test &test_block
 end
-
-threads.each(&:join)
 
 ##### SUMMARIZING #####
 
