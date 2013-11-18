@@ -23,6 +23,7 @@ def run_test
   yield
   print '.'; STDOUT.flush
 rescue => e
+  print 'E'; STDOUT.flush
   @failures << e
 end
 
