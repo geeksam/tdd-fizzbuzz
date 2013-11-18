@@ -20,7 +20,6 @@ def test_fizzbuzz(input, expected_output)
 end
 
 def run_test
-  sleep 0.5
   yield
   print '.'; STDOUT.flush
 rescue => e
