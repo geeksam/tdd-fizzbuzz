@@ -1,14 +1,18 @@
 module FizzBuzzer
   class << self
     def fizzbuzz_of(n)
-      fizz = (n % 3) == 0
-      buzz = (n % 5) == 0
-      case
-      when fizz && buzz ; 'FizzBuzz'
-      when fizz         ; 'Fizz'
-      when buzz         ; 'Buzz'
-      else              ; n
-      end
+      values = printers.map { |printer| printer.call(n) }.compact
+      return n if values.empty?
+      values.join
+    end
+
+    private
+
+    def printers
+      @printers ||= [
+        ->(n) { (n % 3) == 0 ? 'Fizz' : nil },
+        ->(n) { (n % 5) == 0 ? 'Buzz' : nil },
+      ]
     end
   end
 end
